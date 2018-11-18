@@ -52,5 +52,31 @@
                 - 表达有两种提交方式：get与post，他们的区别
                     1. get：以明文的方式通过URL提交数据，数据在URL中可以看到。提交的数据最多不超过2KB。安全性较低但效率比post方式高。适合提交数据不大，安全性不高的数据。比如：搜索、查询等功能。
                     2. post：将用户提交的信息封装在HTML HEARD内。适合提交数据量较大，安全性高的用户信息。比如：注册、修改、上传等功能。
-            
-                
+        3. response对象：包含了响应客户请求的有关信息，但在JSP中很少直接用到它。它是HttpServletResponse类的实例。response对象具有页面作用域，即访问一个页面时，该页面内的response对象只能对这次访问有效，其他页面的response对象对当前页面无效。
+            - 常用方法
+                1. String getCharacterEncoding()返回响应的是何种字符编码
+                2. void setContentType(String type)设置响应MIME类型
+                3. PrintWriter getWriter()返回可以向客户端输出字符的一个对象（注意比较：PrintWriter与内置out对象的区别）
+                4. sendRedirect(java.lang.location)重新定向客户端请求
+            - 请求转发与请求重定向
+                - 请求重定向：客户端行为，response.sendRedirect()，从本质上讲等同于两次请求，前一次的请求对象不会保存，地址栏的URL会改变
+                - 请求转发：服务器行为，request.getRequestDispatcher().forward(req,resp)是一次请求，转发后请求对象会保存，地址栏的URL不会改变
+        4 Session对象
+            - 什么是session
+                1. session标识客户端与服务器的一次会话
+                2. Web中的session指的是用户在浏览某个网站时，从进入网站到浏览器关闭所经过的这段时间，也就是用户浏览这个网站所花费的时间
+                3. 从上述定义中可以看到，session实际上是一个特定的时间概念
+            - 在服务器的内存中保存着不同用户的session
+            - Session对象性质
+                1. session对象是一个JSP内置对象
+                2. session对象在第一个JSP页面被装载时自动创建，完成会话期管理
+                3. 从一个客户打开浏览器并连接到服务器开始，到客户关闭浏览器离开这个服务器结束，被称为一个会话
+                4. 当一个客户访问一个服务器时，可能会在服务器的几个页面之间切换，服务器应当通过某种办法知道这是一个客户，就需要session对象
+                5. session对象是HttpSession类的实例
+            - 常用的方法
+                1. long getCreationTime()：返回SESSION创建的时间
+                2. public String getId()：返回SESSION创建时JSP引擎为它设的唯一ID号
+                3. public Object setAttribute(String name,Object value)：使用指定名称将对象绑定到此会话
+                4. public Object getAttribute(String name)：返回与此会话中的指定名称绑定在一起的对象，如果没有对象绑定在该名称下，则返回null
+                5. String[] getValueNames()：返回一个包含此SESSION中所有可用属性的数组
+                6. int getMaxInactiveInterval()：返回两次请求间隔多长时间此SESSION被取消（单位秒）

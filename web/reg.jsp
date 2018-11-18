@@ -13,7 +13,7 @@
 <body>
     <h1>用户注册</h1>
     <hr>
-    <form name="regForm" action="request.jsp" method="post">
+    <form name="regForm" action="response.jsp" method="post">
         <table>
             <tr>
                 <td>用户名：</td>

@@ -19,12 +19,13 @@
     用户名：<%=request.getParameter("username")%>
     <br>
     爱好：<%
-        if(request.getParameterValues("favorite") == null)
-            return;
-        String[] favorite = request.getParameterValues("favorite");
-        for (int i = 0; i < favorite.length; i++)
+        if(request.getParameterValues("favorite") != null)
         {
-            out.println(favorite[i]+"&nbsp;&nbsp;");
+            String[] favorite = request.getParameterValues("favorite");
+            for (int i = 0; i < favorite.length; i++)
+            {
+                out.println(favorite[i]+"&nbsp;&nbsp;");
+            }
         }
         %>
     <br>
