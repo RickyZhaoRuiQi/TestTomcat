@@ -17,6 +17,11 @@
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss");
         Date d = new Date(session.getCreationTime());
         session.setAttribute("username","admin");
+        session.setAttribute("password","123456");
+        session.setAttribute("age","20");
+
+        //设置当前session最大生存期限，单位秒
+        //session.setMaxInactiveInterval(10); ID编号会变
     %>
     Session创建时间：<%=sdf.format(d)%><br>
     Session的ID编号：<%=session.getId()%><br>

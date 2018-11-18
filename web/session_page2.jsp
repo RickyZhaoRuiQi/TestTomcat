@@ -1,4 +1,4 @@
-<%--
+<%@ page import="java.util.Enumeration" %><%--
   Created by IntelliJ IDEA.
   User: Ricky
   Date: 2018/11/18
@@ -15,5 +15,13 @@
     <hr>
     Session的ID编号：<%=session.getId()%><br>
     从Session中获取用户名：<%=session.getAttribute("username")%><br>
+    Session中保存的属性有：<%
+        Enumeration<String> names = session.getAttributeNames();
+        while(names.hasMoreElements())
+        {
+            out.println(names.nextElement()+"&nbsp;&nbsp;");
+        }
+        %>
+        <br>
 </body>
 </html>
