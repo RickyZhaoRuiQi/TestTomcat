@@ -137,3 +137,36 @@
                 2. String toString()返回关于异常的简短描述信息
                 3. void printStackTrace()显示异常及其栈轨迹
                 4. Throwable FillInStackTrace()重写异常的执行栈轨迹
+                
+---
+
+- 2018-11-22
+    
+    - JavaBeans
+        1. ***什么是JavaBeans?***
+        JavaBeans就是符合某种特定规范的Java类，使用JavaBeans的好处是解决代码重复编写，减少代码冗余，功能区分明确，提高了代码的维护性
+        2. 设计原则。
+        公有、无参共有构造方法、属性私有、getter和setter方法
+        3. Jsp多年工作元素。
+        JSP动作元素，动作元素为请求处理阶段提供信息。动作元素遵循XML元素的语法，有一个包含元素名的开始标签，可以有属性、可选的内容、与开始标签匹配的结束标签
+            - 第一类与存取JavaBean有关的，包括：<jsp:useBean><jsp:setProperty><jsp:getproperty>
+            - 第二类是JSP1.2就开始有的基本元素，包括6个动作元素：<jsp:inclue><jsp:forward><jsp:param><jsp:plugin><jsp:params><jsp:fallback>
+            - 第三类是JSP2.0新增加的元素，主要与JSP Document有关，包括6个元素:<jsp:root><jsp:declaration><jsp:scriptlet><jsp:expression><jsp:text><jsp:output>
+            - 第四类是JSP2.0新增的元素，主要是用来动态生成XML元素标签的值，包括3个动作:<jsp:attribute><jsp:body><jsp:element>
+            - 第五类是JSP2.0新增的动作元素，主要是用在Tag File中，有两个元素:<jsp:invoke><jsp:dobudy>
+        4. 在Jsp中如何使用JavaBeans
+            - 像使用普通Java类一样，创建javabean实例
+            - 在Jsp页面中通常使用jsp动作标签使用javabean
+                1. useBeans动作
+                2. setProperty动作
+                3. getProperty动作
+            - JavaBean的四个作用域范围，useBean的scope属性可以指定javabean作用域范围
+                1. page 仅当前页面有效
+                2. request 可以通过HttpRequest.getAttribute()方法取得JavaBean对象
+                3. session 可以通过HttpSession.getAttribute()方法取得JavaBean对象
+                4. application 可以通过application.getAttribute()方法取得JavaBean对象
+        5. Model1简介
+            - Model1出现前，整个Web应用的情况：几乎全部由JSP页面组成，JSP页面接收处理客户端请求，对请求处理后直接做出响应
+            - 弊端：在界面层充斥着大量的业务逻辑代码和数据访问层的代码，Web程序的可扩展性和可维护性非常差
+            - JavaBean的出现可以使jsp页面中使用JavaBean封装的数据或者调用JavaBean的业务逻辑代码，这样大大提升了程序的可维护性
+            - Model1 jsp+javabean
