@@ -199,5 +199,23 @@
                     2. session保存的是Object类型，cookie保存的是**String**类型
                     3. 随着会话的结束而将其存储的数据**销毁**，cookie可以**长期**保存在客户端
                     4. 保存**重要**信息，保存**相对不重要**信息
-                
-        
+                 
+---
+
+- 2018-11-26
+    
+    - 指令与动作
+        - 指令 page、include、taglib
+            1. include指令 <%@ include file="URL"%>   
+            2. include动过 <jsp:include page="URL flush="true|false"/>
+            - page要包含的页面、flush被包含的页面是否从缓冲区读取
+        - include指令与动作区别            
+            1. 作用时间：**页面转换期间**与**请求期间**
+            2. 包含内容：**文件时间内容（代码）**与**页面的输出（结果）**
+            3. 转换成的Servlet：主页面与包含的页面转换为一个Servlet与主页面与包含页面转换为独立的Servlet
+            4. 编译时间：较慢与较快
+            5. 执行时间：稍快与较慢（每次资源必须被解析）
+        - forward动作
+            1. 语法 <jsp:forward page="URL"/>等同于request.getRequestDispatcher("/url").forward(request,response);
+        - param动作
+            1. 语法 <jsp:param name="参数名" value="参数值"> 常与<jsp:forward>一起用
