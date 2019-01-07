@@ -5,6 +5,7 @@
 ---
 
 - 2018-11-9 
+    - JSP wiki https://zh.wikipedia.org/wiki/JSP
     - 常见动态网站开发技术比较
     1. Jsp：Java平台，安全性高，适合开发大型的，企业级的Web应用程序。
     2. Asp.net：.net平台，简单易学。但是安全性以及跨平台性差。
