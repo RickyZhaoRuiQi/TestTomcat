@@ -91,7 +91,7 @@
             - application对象性质
                 1. application对象实现了用户数据的共享，可存在全局变量
                 2. application开始于服务器的启动，终止于服务器的关闭
-                3. 在用户的前后连接不同用户之间的连接中，可以对application对象的同意属性进行操作
+                3. 在用户的前后连接不同用户之间的连接中，可以对application对象的同一属性进行操作
                 4. 在任何地方对application对象属性的操作，都将影响到其他用户对此的访问
                 5. 服务器的启动和关闭决定了application对象的声明
                 6. application对象是ServletContext类的实例
