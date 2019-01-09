@@ -62,7 +62,7 @@
             - 请求转发与请求重定向
                 - 请求重定向：客户端行为，response.sendRedirect()，从本质上讲等同于两次请求，前一次的请求对象不会保存，地址栏的URL会改变
                 - 请求转发：服务器行为，request.getRequestDispatcher().forward(req,resp)是一次请求，转发后请求对象会保存，地址栏的URL不会改变
-        4 Session对象
+        4. Session对象
             - 什么是session
                 1. session标识客户端与服务器的一次会话
                 2. Web中的session指的是用户在浏览某个网站时，从进入网站到浏览器关闭所经过的这段时间，也就是用户浏览这个网站所花费的时间
@@ -87,7 +87,7 @@
                 - 活动：1）某次会话当中通过超链接打开的新页面属于同一次会话；2）只要当前会话页面没有全部关闭，重新打开新的浏览器窗口访问同一项目资源时属于同一会话；3）除非本次会话所有页面都关闭后再冲重新访问某个Jsp或者Servlet将会创建新的会话
                 - Tips：原有的会话还存在，知识这个旧的Session仍然存在与服务器，只不过再也没有客户端会携带它然后交予服务端校验
                 - 销毁：Session销毁有三种可能：1）调用session.invalidate()；2）Session过期；3）服务器重新启动
-        5 application对象
+        5. application对象
             - application对象性质
                 1. application对象实现了用户数据的共享，可存在全局变量
                 2. application开始于服务器的启动，终止于服务器的关闭
@@ -100,7 +100,7 @@
                 2. Object getAttribute(String name)返回与此会话中的指定名称绑定在一起的对象，如果没有对象绑定在该名称下则返回null
                 3. Enumeration getAttributeNames()返回所有可用属性的枚举
                 4. String getServerInfo()返回JSP(SERVLET)引擎名及版本号
-        6 page对象
+        6. page对象
             - page对象就是指向当前JSP页面本身，有点像类中的this指针，它是java.lang.Object类的实例
             - 常用方法
                 1. class getClass()返回此Object的类
@@ -113,7 +113,7 @@
                 8. void notifyAll()唤醒所有等待的线程
                 9. void wait(int timeout)使一个线程处于等到知道timeout结束或唤醒
                 10. void wait()使一个线程处于等待知道被唤醒
-        7 pageContext对象
+        7. pageContext对象
             - pageContext对象属性
                 1. pageContext对象提供了对JSP页面内所有的对象及名字空间的访问
                 2. pageContext对象可以访问到本页所在session，也可以取本页所在的application的某一属性
@@ -125,13 +125,13 @@
                 3. Object getPage()返回当前页的Object对象
                 4. void forward(String relativeUrlPath)使当前页面重导到另一页面
                 5. void include(String relativeUrlPath)在当前位置包含另一文件
-        8 config对象
+        8. config对象
             - config对象是在一个servlet初始化时，JSP引擎向它传递信息用的，此信息包括servlet初始化时所使用到的参数（通过属性名和属性值构成）以及服务器的有关信息（通过传递一个servletContext对象）
             - 常用方法
                 1. ServletContext getServletContext()返回含有服务器相关信息的ServletContext对象
                 2. String getInitParameter(String name)返回初始化参数值
                 3. Enumerate getInitParameterNames()返回Servlet初始化所需所有参数的枚举
-        9 exception对象
+        9. exception对象
             - exception对象是一个异常对象，当一个页面在运行过程中发生了异常，就产生这个对象。如果JSP页面要应用此对象，就必须把isErrorPage设为True，否则无法通过编译。它实际上是java.lang.Throwable的对象
             - 常用方法
                 1. String getMessage()返回描述异常的消息
